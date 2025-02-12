@@ -41,6 +41,10 @@ fn main() -> std::io::Result<()> {
                 .args([
                     "/K",
                     "cd",
+                    "/D",
+                    "E:",
+                    "&&",
+                    "cd",
                     selected.1.to_str().unwrap(),
                     "&&",
                     "npm",
