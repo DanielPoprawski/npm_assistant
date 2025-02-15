@@ -37,20 +37,8 @@ fn main() -> std::io::Result<()> {
         if selection > 0 && selection <= folders.len() {
             let selected = &folders[selection - 1];
             println!("Selected: {}", selected.0);
-            let mut child = std::process::Command::new("cmd")
-                .args([
-                    "/K",
-                    "cd",
-                    "/D",
-                    "E:",
-                    "&&",
-                    "cd",
-                    selected.1.to_str().unwrap(),
-                    "&&",
-                    "npm",
-                    "run",
-                    "dev",
-                ])
+            let mut child = std::process::Command::new("powershell")
+                .args(["cd", selected.1.to_str().unwrap(), ";", "npm", "run", "dev"])
                 .spawn()?;
 
             match child.wait() {
