@@ -2,7 +2,7 @@ use std::fs;
 use std::path::Path;
 
 fn main() -> std::io::Result<()> {
-    let path = Path::new("E:\\");
+    let path = Path::new("C:\\code\\");
 
     let mut folders = Vec::new();
     for entry in fs::read_dir(path)? {
